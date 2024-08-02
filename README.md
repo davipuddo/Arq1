@@ -1,1 +1,1 @@
-# Repositório para projetos de Arquitetura 1
+# Projetos de Arquitetura 1
