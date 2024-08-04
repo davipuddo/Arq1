@@ -1,18 +1,13 @@
-/*
-Guia_0104.v
-999999 - Xxx Yyy Zzz
-*/
 module Guia_0104;
 // define data
-integer x = 13; // decimal
-reg [7:0] b = 0; // binary
+integer x = 20;
+reg [7:0] b = 0;
+
 // actions
 initial
-begin : main
-$display ( "Guia_0104 - Tests" );
-$display ( "x = %d" , x );
-$display ( "b = %8b", b );
-b = x;
-$display ( "b = [%4b] [%4b] = %x %x", b[7:4], b[3:0], b[7:4], b[3:0] );
+ begin : main
+ b = x;
+ $display ( "b = %8b", b );
+ $display ( "b = %d%d%d%d (4)",b[7:6], b[5:4], b[3:2], b[1:0]);
 end // main
 endmodule // Guia_0104
