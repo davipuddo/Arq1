@@ -1,4 +1,6 @@
-public class G0101
+// 853355 Davi Ferreira Puddo
+
+public class G01
 {   
     // Encontrar tamanho 
     public static int FindSize (int x)
@@ -44,11 +46,13 @@ public class G0101
         int value = 26;
         int size = FindSize(value);
 
+        // Converter para binario
+        byte [] res = dec2bin(value);
+
         // Mostrar resultado
         System.out.print(value + " = ");
         for (int i = 0; i < size; i++)
         {
-            byte [] res = dec2bin(value);
             System.out.print(res[i]);
         }
         System.out.println("");
@@ -57,11 +61,13 @@ public class G0101
         value = 713;
         size = FindSize(value);
 
+        // Converter para binario
+        res = dec2bin(value);
+
         // Mostrar resultado
         System.out.print(value + " = ");
         for (int i = 0; i < size; i++)
         {
-            byte [] res = dec2bin(value);
             System.out.print(res[i]);
         }
         System.out.println("");

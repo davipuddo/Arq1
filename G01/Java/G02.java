@@ -1,4 +1,6 @@
-public class G0102 
+// 853355 Davi Ferreira Puddo
+
+public class G02 
 {   
     // Converter inteiro para binario
     public static int bin2dec (byte [] x)
