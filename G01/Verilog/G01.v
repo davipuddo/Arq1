@@ -159,3 +159,30 @@ module G0104;
 		end // main
 
 endmodule // G0104
+
+module G0105;
+
+	// Definir dados
+	reg [0:7][7:0] s = "PUC-M.G.";
+	reg [0:13][7:0] b = "Belo Horizonte";
+	reg [0:4][7:0] o = {8'o156, 8'o157, 8'o151, 8'o164, 8'o145};
+	reg [0:4][7:0] h = {8'h4D, 8'h61, 8'h6E, 8'h68, 8'h61};
+	
+	// Acoes
+	initial
+		begin: main
+		
+		$display ("%s (ASCII) = %h (ASCII_16)", s, s);
+			
+		s = "2024-02";
+		$display ("%s (ASCII) = %h (ASCII_16)", s, s);
+				
+		$display ("%s (ASCII) = %8b (ASCII_2)", b, b);
+
+		$display ("%o (ASCII_8) = %s", o, o);
+
+		$display ("%h (ASCII_16) = %s", h, h);
+
+		end // main
+		
+endmodule // G0105
