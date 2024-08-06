@@ -28,11 +28,11 @@ public class G03
                         tmp = tmp - power*y;
                         if (y <= 10)
                         {
-                            result[pos] = (char)(y + 48);
+                            result[pos] = (char)(y + 48);   // Numeros para base menor do que 10
                         }
                         else
                         {
-                            result[pos] = (char)(y + 55);
+                            result[pos] = (char)(y + 55);   // Letrar para base maior do que 10
                         }
                         pos++;
                     }
