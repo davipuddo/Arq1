@@ -170,7 +170,39 @@ module G0202;
 
 			decimal = 0.75;
 			decimal = print (decimal, Dec2DecBin(decimal), 6);
-
+			
 		end // main
 
 endmodule // G0202
+
+module G0203;
+
+	// Definir dados
+	reg [7:0] b_i = 8'b00000000;
+	reg [7:0] b_f = 8'b01111000;
+
+	initial
+		begin : main
+		
+			$display ("\nG0203 -\n");
+
+			$display ("%0b.%0b (2) = %d.%d%d%d%d (4)", b_i[7:7], b_f, b_i, b_f[7:6], b_f[5:4], b_f[3:2], b_f[1:0]);
+
+			b_f = 8'b101001;
+			$display ("%0b.%0b (2) = %d.%d%d (8)", b_i[7:7], b_f, b_i, b_f[5:3], b_f[2:0]);
+		
+			b_f = 8'b10011000;
+			$display ("%0b.%0b (2) = %h.%h%h (16)", b_i, b_f, b_i, b_f[7:4], b_f[3:0]);
+
+			b_i = 8'b1;
+			b_f = 8'b11101100;
+			$display ("%0b.%0b (2) = %d.%d%d%d (8)", b_i, b_f, b_i, b_f[7:5], b_f[4:2], b_f[1:0]);
+		
+			b_i = 8'b1101;
+			b_f = 8'b1001;
+			$display ("%0b.%0b (2) = %h.%h (16)", b_i, b_f, b_i[3:0], b_f[3:0]);
+
+		end // main
+	
+
+endmodule // G0203
