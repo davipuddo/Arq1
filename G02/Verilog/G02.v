@@ -192,7 +192,7 @@ module G0203;
 			$display ("%0b.%0b (2) = %d.%d%d (8)", b_i[7:7], b_f, b_i, b_f[5:3], b_f[2:0]);
 		
 			b_f = 8'b10011000;
-			$display ("%0b.%0b (2) = %h.%h%h (16)", b_i, b_f, b_i, b_f[7:4], b_f[3:0]);
+			$display ("%0b.%0b (2) = %h.%h%h (16)", b_i[7:7], b_f, b_i, b_f[7:4], b_f[3:0]);
 
 			b_i = 8'b1;
 			b_f = 8'b11101100;
@@ -206,3 +206,50 @@ module G0203;
 	
 
 endmodule // G0203
+
+module G0204;
+
+
+endmodule // G0204
+
+module G0205;
+	
+	// Definir dados
+	reg [7:0] a = 8'b00101110;
+	reg [7:0] b = 8'b00010011;
+	reg [7:0] r = 8'b00000000;
+	reg [9:0] r2 = 10'b0000000000;
+	
+	// Acoes
+	initial
+		begin : main
+
+			// Apresentacao
+			$display ("\nG0205 -\n");
+			
+			r = a + b;
+			$display ("%0b.%0b + %0b.%b = %0b.%b", a[5:3], a[2:0], b[4:3], b[2:0], r[6:3], r[2:0]);
+
+			a = 8'b01000101;
+			b = 8'b00010010;
+			r = a - b;
+			$display ("%0b.%0b - %0b.%b = %0b.%b", a[6:3], a[2:0], b[4:3], b[2:0], r[5:3],r[2:0]);
+
+			a = 8'b00101101;
+			b = 8'b00010101;
+			r2 = a * b;
+			$display ("%0b.%0b * %0b.%0b = %0b.%b", a[5:3], a[2:0], b[4:3], b[2:0], r2[9:6], r2[5:0]);
+		
+			a = 8'b10111010;
+			b = 8'b00011011;
+			r = a / b;
+			$display ("%0b.%b / %0b.%b = %8b", a[7:3], a[2:0], b[4:3], b[2:0], r);  // Sem casas decimais
+
+			a = 8'b01101011;
+			b = 8'b00001101;
+			r = a % b;
+			$display ("%0b %% %0b = %0b", a[6:0], b[3:0], r);
+
+		end // main
+
+endmodule // G0205
