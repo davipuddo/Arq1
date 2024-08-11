@@ -209,6 +209,80 @@ endmodule // G0203
 
 module G0204;
 
+	// Definir dados
+	reg [3:0] t = 4'b0000;
+	reg [7:0] b = 8'b00000000;
+	reg [11:0] o = 12'o751;
+	reg [15:0] h = 16'h3D2;
+	integer x [7:0];
+	
+	// Acoes
+	initial
+		begin : main
+			
+			// Apresentacao
+			$display ("\nG0204 -\n");
+
+			b[7:6] = 0;
+			b[5:4] = 3;
+			b[3:2] = 2;
+			b[1:0] = 1;
+
+			$display ("0.321 (4) = 0.%0b (2)", b);
+			
+			t = h[11:8];	// Converter para binario
+			x[5] = t[3:2];	// Converter para base 4
+			x[4] = t[1:0];	//			==
+
+			t = h[7:4];
+			x[3] = t[3:2];
+			x[2] = t[1:0];
+
+			t = h[3:0];
+			x[1] = t[3:2];
+			x[0] = t[1:0];
+
+			$display ("0.%h (16) = 0.%0d%0d%0d%0d%0d%0d (4)", h, x[5], x[4], x[3], x[2], x[1], x[0]);
+			
+			$display ("0.%0o (8) = 0.%0b%b%b (2)", o, o[8:6], o[5:3], o[2:0]);
+			
+			o = 12'o7_345;
+			t = o[11:9];	// Conerter para binario
+			x[7] = t[3:2];	// Converter para base 4
+			x[6] = t[1:0];	//			==
+
+			t = o[8:6];
+			x[5] = t[3:2];
+			x[4] = t[1:0];
+
+			t = o[5:3];
+			x[3] = t[3:2];
+			x[2] = t[1:0];
+
+			t = o[2:0];
+			x[1] = t[3:2];
+			x[0] = t[1:0];
+			$display ("%0o.%0o (8) = %0d%0d.%0d%0d%0d%0d%0d%0d (4)", o[11:9], o[8:0], x[7], x[6], x[5], x[4], x[3], x[2], x[1], x[0]);
+			
+			h = 16'hFA5E;
+			t = h[15:12];
+			x[7] = t[3:2];
+			x[6] = t[1:0];
+
+			t = h[11:8];	// Converter para binario
+			x[5] = t[3:2];	// Converter para base 4
+			x[4] = t[1:0];	//			==
+
+			t = h[7:4];
+			x[3] = t[3:2];
+			x[2] = t[1:0];
+
+			t = h[3:0];
+			x[1] = t[3:2];
+			x[0] = t[1:0];
+
+			$display ("%h.%h (16) = %0d%0d.%0d%0d%0d%0d%0d%0d (4)", h[15:12], h[11:0], x[7], x[6], x[5], x[4], x[3], x[2], x[1], x[0]);
+		end // main
 
 endmodule // G0204
 
@@ -219,7 +293,8 @@ module G0205;
 	reg [7:0] b = 8'b00010011;
 	reg [7:0] r = 8'b00000000;
 	reg [9:0] r2 = 10'b0000000000;
-	
+	reg [0:9] r3 = 10'b0000000000;
+
 	// Acoes
 	initial
 		begin : main
@@ -240,10 +315,10 @@ module G0205;
 			r2 = a * b;
 			$display ("%0b.%0b * %0b.%0b = %0b.%b", a[5:3], a[2:0], b[4:3], b[2:0], r2[9:6], r2[5:0]);
 		
-			a = 8'b10111010;
+			a = 8'b01011101;
 			b = 8'b00011011;
-			r = a / b;
-			$display ("%0b.%b / %0b.%b = %8b", a[7:3], a[2:0], b[4:3], b[2:0], r);  // Sem casas decimais
+			r3 = a / b;
+			$display ("%0b.%b / %0b.%b = %8b", a[7:3], a[2:0], b[4:3], b[2:0], r3);  // Sem casas decimais
 
 			a = 8'b01101011;
 			b = 8'b00001101;
